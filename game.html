@@ -3,13 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Sudoku Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .sudoku-container {
+            display: grid;
+            grid-template-columns: repeat(9, 50px);
+            grid-template-rows: repeat(9, 50px);
+            gap: 1px;
+            background-color: #333;
+        }
+
+        .sudoku-cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            font-size: 18px;
+            border: 1px solid #ccc;
+        }
+
+        /* Thicker borders for the 3x3 boxes */
+        .sudoku-cell:nth-child(3n+1) {
+            border-left: 3px solid #333;
+        }
+        .sudoku-cell:nth-child(-n+3) {
+            border-top: 3px solid #333;
+        }
+        .sudoku-cell:nth-child(n+19):nth-child(-n+21),
+        .sudoku-cell:nth-child(n+28):nth-child(-n+30),
+        .sudoku-cell:nth-child(n+37):nth-child(-n+39),
+        .sudoku-cell:nth-child(n+46):nth-child(-n+48),
+        .sudoku-cell:nth-child(n+55):nth-child(-n+57),
+        .sudoku-cell:nth-child(n+64):nth-child(-n+66),
+        .sudoku-cell:nth-child(n+73):nth-child(-n+75) {
+            border-top: 3px solid #333;
+        }
+        .sudoku-cell:nth-child(7n+1):nth-child(-n+9),
+        .sudoku-cell:nth-child(7n+1):nth-child(n+64),
+        .sudoku-cell:nth-child(n+28):nth-child(-n+36) {
+            border-right: 3px solid #333;
+        }
+
+        /* Add placeholder numbers (replace these with actual Sudoku numbers later) */
+        input {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: white;
+        }
+
+        input:disabled {
+            background-color: #eee; /* Grey background for default numbers */
+        }
+    </style>
 </head>
 <body>
-    <div class="game-board" id="gameBoard"></div>
-    <h1 id="score">Score: 0</h1>
 
-    <script src="game.js"></script>
+    <div class="sudoku-container">
+        <!-- 81 Sudoku cells (9x9 grid) -->
+        <div class="sudoku-cell"><input type="text"></div>
+        <div class="sudoku-cell"><input type="text" disabled value="5"></div>
+        <div class="sudoku-cell"><input type="text"></div>
+        <div class="sudoku-cell"><input type="text"></div>
+        <div class="sudoku-cell"><input type="text" disabled value="3"></div>
+        <div class="sudoku-cell"><input type="text"></div>
+        <div class="sudoku-cell"><input type="text"></div>
+        <div class="sudoku-cell"><input type="text"></div>
+        <div class="sudoku-cell"><input type="text"></div>
+
+        <!-- Continue with more cells like the above -->
+        <!-- Just copying 81 .sudoku-cell divs -->
+
+        <!-- Example row 2 -->
+        <div class="sudoku-cell"><input type="text"></div>
+        <div class="sudoku-cell"><input type="text" disabled value="6"></div>
+        <div class="sudoku-cell"><input type="text"></div>
+        <div class="sudoku-cell"><input type="text"></div>
+        <div class="sudoku-cell"><input type="text" disabled value="8"></div>
+        <div class="sudoku-cell"><input type="text"></div>
+        <div class="sudoku-cell"><input type="text"></div>
+        <div class="sudoku-cell"><input type="text"></div>
+        <div class="sudoku-cell"><input type="text"></div>
+
+        <!-- Continue for all 9 rows -->
+    </div>
+
 </body>
 </html>
